@@ -18,7 +18,7 @@ def operationCommands():
     while True:
         s = socket.socket()
 
-        port = 12345
+        port = 11111
         
         s.connect(('127.0.0.1', port))
 

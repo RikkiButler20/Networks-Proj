@@ -17,7 +17,7 @@ def GETHandler(key):
 def DUMPHandler():
     return mapper
 
-port = 12345
+port = 11112
 
 s = socket.socket()
 s.bind(('127.0.0.1', port))
