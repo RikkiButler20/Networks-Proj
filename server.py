@@ -20,21 +20,21 @@ s = socket.socket()
 s.bind(('127.0.0.1', port))
 s.listen(10)
 
-c, addr = s.accept()
+# c, addr = s.accept()
 
-req  = c.recv(1024).decode('ascii')
+# req  = c.recv(1024).decode('ascii')
 
-print(req)
+# print(req)
 
-c.close()
+# c.close()
 
-# while True:
-#     s2, anything = s.accept()
+while True:
+    s2, anything = s.accept()
 
-#     request = c.recv(2029).decodea('ascii')
-#     request = request.split(':')
+    request = s2.recv(2029).decode('ascii')
+    request = request.split(':')
 
-#     print(request)
+    print(request)
 
 #     if request[0] == 'PUT':
 #         PUTHandler(request[1], request[2])

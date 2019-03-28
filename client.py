@@ -16,14 +16,16 @@ def send_DUMP(s):
 
 def operationCommands():
     while True:
+        print("Connected")
         s = socket.socket()
 
         port = 12345
-
+        
         s.connect(('127.0.0.1', port))
-        s.sendall(b'anything')
+        
+        # s.sendall(b'anything')
 
-        commands = input("GET key, PUT key value, DUMP, or Q (quit) ")
+        commands = input("GET key, PUT key value, DUMP, or Q (quit): ")
         commands = commands.split(' ')
         op = commands.pop(0)
         if op.upper() == "GET":
@@ -43,12 +45,12 @@ def operationCommands():
         
         s.close()
 
-# operationCommands()
-s = socket.socket()
+operationCommands()
+# s = socket.socket()
 
-port = 12345
+# port = 12345
 
-s.connect(('127.0.0.1', port))
-s.sendall(b'anything')
+# s.connect(('127.0.0.1', port))
+# s.sendall(b'anything')
 
-s.close()
+# s.close()
