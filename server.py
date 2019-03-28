@@ -15,6 +15,8 @@ def GETHandler(key):
 
 #lists all of the key value pairs
 def DUMPHandler():
+    if not mapper:
+        return {}
     return mapper
 
 port = 11112
