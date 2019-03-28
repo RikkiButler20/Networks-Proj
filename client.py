@@ -16,25 +16,29 @@ def send_DUMP(s):
 
 def operationCommands():
     while True:
-        print("in While")
         s = socket.socket()
 
         port = 12345
         
         s.connect(('127.0.0.1', port))
-        print("Connected")
-        # s.sendall(b'anything')
 
         commands = input("GET key, PUT key value, DUMP, or Q (quit): ")
         commands = commands.split(' ')
+
         op = commands.pop(0)
         if op.upper() == "GET":
-            key = commands.pop(0)
-            send_GET(s,key)
+            if not commands:
+                print('Missing key')
+            else :
+                key = commands.pop(0)
+                send_GET(s,key)
         elif op.upper() == "PUT":
-            key = commands.pop(0)
-            value = ''.join(commands)
-            send_PUT(s, key, value)
+            if not commands:
+                print('Missing key')
+            else :
+                key = commands.pop(0)
+                value = ''.join(commands)
+                send_PUT(s, key, value)
         elif op.upper() == "DUMP":
             send_DUMP(s)
         elif op.upper() == 'Q':
@@ -46,11 +50,3 @@ def operationCommands():
         s.close()
 
 operationCommands()
-# s = socket.socket()
-
-# port = 12345
-
-# s.connect(('127.0.0.1', port))
-# s.sendall(b'anything')
-
-# s.close()
